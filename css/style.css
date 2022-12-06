@@ -1,0 +1,16 @@
+body {
+background-color: peachpuff;
+color: white;
+}
+
+h1 {
+  background-color: aquamarine;
+  color: black;
+  font-size: 3vw;
+  text-align: center;
+  margin-bottom: 50px;
+  font-family: 'Lodrina Shadow', cursive;
+  padding: 1%;
+  border: 5px solid red;
+  width: 100%
+}
