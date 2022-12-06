@@ -13,7 +13,8 @@ function randomNumOfCust(min,max) {
 
 
 // Calculate and store the simulated amounts of cookies purchased for each hour at each location using average cookies purchased and the random number of customers generated.
-
+// Need a for loop
+// 
 
 // Store the results for each location in a separate array… perhaps as a property of the object representing that location.
 
@@ -25,9 +26,7 @@ function randomNumOfCust(min,max) {
 
 
 //  ********** DOM WINDOWS *************
-
-
-
+let storeSection = document.getElementById
 
 // ************** GLOBALS **************
 let hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12am', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
@@ -41,22 +40,37 @@ let hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12am', '1pm', '2pm', '
 
 
 // ************ OBJECT LITERALS ************
+// got from class demo
 let seattle = {
-  name: 'Seattle'
+  name: 'Seattle',
   minCust: 23,
   maxCust: 65,
   avrgCookiesBought: 6.3
   cookiesBought: []
+  total: 0,
   getNumOfCust: function (){
-    this.cookiesBought = randomNumOfCust(23, 65);
+    return Math.floor(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
+  },// this.cookiesBought = randomNumOfCust(23, 65);
+  cookieSales: function() {
+    for(let i = 0; i < hours.length; i++)
+    let cookiesNeeded = this.getNumOfCust() * this.avrgCookiesBought;
+    this.cookiesBought.push(cookiesNeeded);
+    this.total = this.total + cookiesNeeded;
+    // this.total += cookiesNeeded;
+  },
+  render: function(){
+    this.cookieSales();
+    let ulElem = document.createElement('ul');
+    storeSection.appendChild(ulElem);
   }
 };
+
 seattle.getNumOfCust();
 console.log(seattle);
 
 
 let tokyo = {
-  name: 'Tokyo'
+  name: 'Tokyo',
   minCust: 3,
   maxCust: 24,
   avrgCookiesBought: 1.2
@@ -69,7 +83,7 @@ tokyo.getNumOfCust();
 console.log(tokyo);
 
 let dubai = {
-  name: 'Dubai'
+  name: 'Dubai',
   minCust: 11,
   maxCust: 24,
   avrgCookiesBought: 3.7
@@ -82,7 +96,7 @@ dubai.getNumOfCust();
 console.log(dubai);
 
 let paris = {
-  name: 'Paris'
+  name: 'Paris',
   minCust: 20,
   maxCust: 38,
   avrgCookiesBought: 2.3
@@ -95,7 +109,7 @@ paris.getNumOfCust();
 console.log(paris);
 
 let lima = {
-  name: 'Lima'
+  name: 'Lima',
   minCust: 2,
   maxCust: 16,
   avrgCookiesBought: 4.6
