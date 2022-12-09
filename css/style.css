@@ -19,3 +19,7 @@ th, td {
   margin: 10px;
   
 }
+
+img{
+  border-radius: 50%;
+}
